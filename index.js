@@ -28,13 +28,14 @@ function render(sunglassesNew) {
             cssClass: sunglassesNew.frame.cssClass,
         }     
     }
-    let price = "$" + (sunglassesNew.model.price + sunglassesNew.lenses.price + sunglassesNew.frame.price)
+    let price = `$${sunglassesNew.model.price + sunglassesNew.lenses.price + sunglassesNew.frame.price}`
     
   
-    productDetailsEl.innerHTML = 
-    "<h1>" + sunglassesNew.model.name + "</h1>" +
-    "<p>Custom: "  + sunglassesNew.lenses.color + " lenses, " + sunglassesNew.frame.color + " frames</p>" +
-    "<p>" + price + "</p>"
+    productDetailsEl.innerHTML = `
+    <h1>${sunglassesNew.model.name}</h1>
+    <p>Custom: ${sunglassesNew.lenses.color} lenses, ${sunglassesNew.frame.color} frames</p>
+    <p>${price}</p>
+    `
     
     const currClass = productImage.classList[1]
     productImage.classList.replace(currClass, sunglassesNew.model.cssClass)
