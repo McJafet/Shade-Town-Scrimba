@@ -8,7 +8,7 @@ const productLenses = document.getElementsByClassName("product-image_lenses")[0]
 
 let sunglassesNew = ''
 
-function render(sunglassesNew) {
+function render(sunglassesNew = sunglasses) {
     
     sunglassesNew = {...sunglassesNew}
 
