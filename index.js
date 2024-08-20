@@ -10,24 +10,8 @@ let sunglassesNew = ''
 
 function render(sunglassesNew) {
     
-    sunglassesNew = {
-        model: {
-            name: sunglassesNew.model.name,
-            price: sunglassesNew.model.price,
-            thumbImg: sunglassesNew.model.thumbImg,
-            cssClass: sunglassesNew.model.cssClass,
-        },
-        lenses: {
-            color: sunglassesNew.lenses.color,
-            price: sunglassesNew.lenses.price,
-            cssClass: sunglassesNew.lenses.cssClass,
-        },
-        frame: {
-            color: sunglassesNew.frame.color,
-            price: sunglassesNew.frame.price,
-            cssClass: sunglassesNew.frame.cssClass,
-        }     
-    }
+    sunglassesNew = {...sunglassesNew}
+
     let price = `$${sunglassesNew.model.price + sunglassesNew.lenses.price + sunglassesNew.frame.price}`
     
   
@@ -89,24 +73,7 @@ document.body.addEventListener("click", function(event) {
         let thumbImg = modelOptions.thumbImg
         let cssClass = modelOptions.cssClass
         
-        sunglassesNew = {
-            model: {
-                name: name,
-                price: price,
-                thumbImg: sunglassesNew.model.thumbImg,
-                cssClass: cssClass,
-            },
-            lenses: {
-                color: sunglassesNew.lenses.color,
-                price: sunglassesNew.lenses.price,
-                cssClass: sunglassesNew.lenses.cssClass,
-            },
-            frame: {
-                color: sunglassesNew.frame.color,
-                price: sunglassesNew.frame.price,
-                cssClass: sunglassesNew.frame.cssClass,
-            }     
-        }
+        sunglassesNew = {...sunglassesNew, model: {name: name, price: price, thumbImg: thumbImg, cssClass: cssClass}}
        
         addHighlight(clickedItem)
         setSunglasses(sunglassesNew)
@@ -129,24 +96,7 @@ document.body.addEventListener("click", function(event) {
             let price = colorOptions.price
             let cssClass = colorOptions.cssClass
         
-            sunglassesNew = {
-                model: {
-                    name: sunglassesNew.model.name,
-                    price: sunglassesNew.model.price,
-                    thumbImg: sunglassesNew.model.price,
-                    cssClass: sunglassesNew.model.cssClass,
-                },
-                lenses: {
-                    color: color,
-                    price: price,
-                    cssClass: cssClass,
-                },
-                frame: {
-                    color: sunglassesNew.frame.color,
-                    price: sunglassesNew.frame.price,
-                    cssClass: sunglassesNew.frame.cssClass,
-                }     
-            }
+            sunglassesNew = {...sunglassesNew, lenses: {color: color, price: price, cssClass: cssClass}}
         } 
         
         //frames
@@ -160,24 +110,7 @@ document.body.addEventListener("click", function(event) {
             let price = colorOptions.price
             let cssClass = colorOptions.cssClass
             
-            sunglassesNew = {
-                model: {
-                    name: sunglassesNew.model.name,
-                    price: sunglassesNew.model.price,
-                    thumbImg: sunglassesNew.model.price,
-                    cssClass: sunglassesNew.model.cssClass,
-                },
-                lenses: {
-                    color: sunglassesNew.lenses.color,
-                    price: sunglassesNew.lenses.price,
-                    cssClass: sunglassesNew.lenses.cssClass,
-                },
-                frame: {
-                    color: color,
-                    price: price,
-                    cssClass: cssClass,
-                }     
-            }
+            sunglassesNew = {...sunglassesNew, frame: {color: color, price: price, cssClass: cssClass}}
         }
 
         addHighlight(clickedItem)
