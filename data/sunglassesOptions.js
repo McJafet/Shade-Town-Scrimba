@@ -58,3 +58,5 @@ export const sunglassesOptions = {
         },
     ],
 }
+
+export const { models, lenses, frames } = sunglassesOptions

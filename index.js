@@ -1,5 +1,5 @@
 import { sunglasses, setSunglasses } from "./data/sunglasses.js";
-import { sunglassesOptions } from "./data/sunglassesOptions.js";
+import { sunglassesOptions, models, lenses, frames } from "./data/sunglassesOptions.js";
 
 const productDetailsEl = document.getElementById("productDetails")
 const productImage = document.getElementById("productImage")
@@ -63,15 +63,10 @@ document.body.addEventListener("click", function(event) {
 
         let currName = clickedItem.dataset.name
 
-        let modelOptions = sunglassesOptions.models
+        let {name, price, thumbImg, cssClass} = models
         .filter(function(item) {
             return item.name === currName
         })[0]
-        
-        let name = modelOptions.name
-        let price = modelOptions.price
-        let thumbImg = modelOptions.thumbImg
-        let cssClass = modelOptions.cssClass
         
         sunglassesNew = {...sunglassesNew, model: {name: name, price: price, thumbImg: thumbImg, cssClass: cssClass}}
        
@@ -87,28 +82,21 @@ document.body.addEventListener("click", function(event) {
         // check nearest parent div
             //lenses
         if (clickedItem.closest("div").classList[0] === "product-lenses") {
-            let colorOptions = sunglassesOptions.lenses
+
+            let {color, price, cssClass} = lenses
             .filter(function(item) {
                 return item.color === currColor
             })[0]
             
-            let color = colorOptions.color
-            let price = colorOptions.price
-            let cssClass = colorOptions.cssClass
-        
             sunglassesNew = {...sunglassesNew, lenses: {color: color, price: price, cssClass: cssClass}}
         } 
         
         //frames
         else {
-            let colorOptions = sunglassesOptions.frames
+            let {color, price, cssClass} = frames
             .filter(function(item) {
                 return item.color === currColor
             })[0]
-            
-            let color = colorOptions.color
-            let price = colorOptions.price
-            let cssClass = colorOptions.cssClass
             
             sunglassesNew = {...sunglassesNew, frame: {color: color, price: price, cssClass: cssClass}}
         }
